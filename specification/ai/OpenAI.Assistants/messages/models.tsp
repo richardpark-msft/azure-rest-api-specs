@@ -19,7 +19,6 @@ model ThreadInitializationMessage {
   access files.
   """)
   fileIds?: string[] = [];
-
   ...OptionalNullableMetadata;
 }
 
@@ -61,7 +60,6 @@ model ThreadMessage {
   access files.
   """)
   fileIds: string[];
-
   ...RequiredNullableMetadata;
 }
 
@@ -184,14 +182,6 @@ model MessageTextFilePathDetails {
 model MessageImageFileDetails {
   @projectedName("json", "file_id")
   @doc("The ID for the file associated with this image.")
-  fileId: MessageImageFileIdDetails;
-}
-
-@doc("An encapsulation of an image file ID, as used by message image content.")
-@added(ServiceApiVersions.v2024_02_15_preview)
-model MessageImageFileIdDetails {
-  @doc("The ID of the specific image file.")
-  @projectedName("json", "file_id")
   fileId: string;
 }
 
