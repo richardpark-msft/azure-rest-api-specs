@@ -405,7 +405,8 @@ model AcsRouterJobReceivedEventData extends AcsRouterJobEventData {
 
   /** Router Job Received Scheduled Time in UTC */
   @madeRequired(ServiceApiVersions.v2024_01_01)
-  scheduledOn: utcDateTime;
+  @encode(DateTimeKnownEncoding.rfc7231)
+  scheduledOn: string;
 
   /** Unavailable For Matching for Router Job Received */
   unavailableForMatching: boolean;
