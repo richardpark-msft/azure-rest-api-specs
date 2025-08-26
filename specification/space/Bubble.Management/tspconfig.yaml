@@ -1,0 +1,44 @@
+parameters:
+  "service-dir":
+    default: "sdk/space"
+  "service-directory-name":
+    default: "space"
+emit: ["@azure-tools/typespec-autorest"]
+linter:
+  extends:
+    - "@azure-tools/typespec-azure-rulesets/resource-manager"
+options:
+  "@azure-tools/typespec-autorest":
+    azure-resource-provider-folder: "resource-manager"
+    emit-common-types-schema: "never"
+    emitter-output-dir: "{project-root}/.."
+    output-file: "{azure-resource-provider-folder}/{service-name}/{version-status}/{version}/spacebubble.json"
+    omit-unreachable-types: true
+    use-read-only-status-schema: true
+
+  "@azure-tools/typespec-csharp":
+    flavor: azure
+    package-dir: "Azure.ResourceManager.SpaceBubble"
+    clear-output-folder: true
+    model-namespace: true
+    namespace: "{package-dir}"
+
+  "@azure-tools/typespec-go":
+    service-dir: "sdk/resourcemanager/spacebubble"
+    package-dir: "armspacebubble"
+
+  "@azure-tools/typespec-java":
+    flavor: azure
+    package-dir: "azure-resourcemanager-spacebubble"
+    namespace: "com.azure.resourcemanager.spacebubble"
+
+  "@azure-tools/typespec-python":
+    flavor: azure
+    package-dir: "azure-mgmt-spacebubble"
+    package-name: "azure-mgmt-spacebubble"
+
+  "@azure-tools/typespec-ts":
+    flavor: azure
+    package-dir: "arm-spacebubble"
+    packageDetails:
+      name: "@azure/arm-spacebubble"

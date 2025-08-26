@@ -1,0 +1,72 @@
+{
+  "title": "Create or update a space bubble",
+  "operationId": "SpaceBubbles_CreateOrUpdate",
+  "parameters": {
+    "subscriptionId": "12345678-1234-1234-1234-123456789012",
+    "resourceGroupName": "myResourceGroup",
+    "spaceBubbleName": "mySpaceBubble",
+    "api-version": "2024-01-01",
+    "resource": {
+      "location": "East US",
+      "tags": {
+        "environment": "production",
+        "project": "space-exploration"
+      },
+      "properties": {
+        "diameter": 1000.5,
+        "status": "Creating",
+        "coordinates": {
+          "x": 123.456,
+          "y": 789.012,
+          "z": 345.678
+        }
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/myResourceGroup/providers/Microsoft.SpaceBubble/spaceBubbles/mySpaceBubble",
+        "name": "mySpaceBubble",
+        "type": "Microsoft.SpaceBubble/spaceBubbles",
+        "location": "East US",
+        "tags": {
+          "environment": "production",
+          "project": "space-exploration"
+        },
+        "properties": {
+          "diameter": 1000.5,
+          "status": "Active",
+          "coordinates": {
+            "x": 123.456,
+            "y": 789.012,
+            "z": 345.678
+          },
+          "provisioningState": "Succeeded"
+        }
+      }
+    },
+    "201": {
+      "body": {
+        "id": "/subscriptions/12345678-1234-1234-1234-123456789012/resourceGroups/myResourceGroup/providers/Microsoft.SpaceBubble/spaceBubbles/mySpaceBubble",
+        "name": "mySpaceBubble",
+        "type": "Microsoft.SpaceBubble/spaceBubbles",
+        "location": "East US",
+        "tags": {
+          "environment": "production",
+          "project": "space-exploration"
+        },
+        "properties": {
+          "diameter": 1000.5,
+          "status": "Creating",
+          "coordinates": {
+            "x": 123.456,
+            "y": 789.012,
+            "z": 345.678
+          },
+          "provisioningState": "Accepted"
+        }
+      }
+    }
+  }
+}

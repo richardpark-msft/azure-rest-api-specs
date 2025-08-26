@@ -1,0 +1,41 @@
+parameters:  
+  "service-dir":
+    default: "sdk/space.bubble"
+  "dependencies":
+    default: ""
+emit:
+  - "@azure-tools/typespec-autorest"
+options:
+  "@azure-tools/typespec-autorest":
+    azure-resource-provider-folder: "data-plane"
+    emitter-output-dir: "{project-root}/.."
+    output-file: "{azure-resource-provider-folder}/{service-name}/{version-status}/{version}/openapi.json"
+  "@azure-tools/typespec-python":    
+    package-dir: "space-bubble"
+    namespace: "azure.space.bubble"
+    package-mode: dataplane
+    flavor: azure
+  "@azure-tools/typespec-csharp":
+    package-dir: "Space.Bubble"
+    namespace: "{package-dir}"
+    clear-output-folder: true
+    model-namespace: false
+    flavor: azure
+  "@azure-tools/typespec-ts":
+    package-dir: "space-bubble-rest"
+    package-details:
+      name: "@azure-rest/space-bubble"
+      description: "Space.Bubble Service"
+    flavor: azure
+  "@azure-tools/typespec-java":
+    package-dir: "space-bubble"
+    namespace: com.space.bubble
+    flavor: azure
+  "@azure-tools/typespec-go":
+    package-dir: "azspacebubble"
+    module: "github.com/Azure/azure-sdk-for-go/sdk/ai/azspacebubble"
+    package-name: "azspacebubble"
+    flavor: azure
+linter:
+  extends:
+    - "@azure-tools/typespec-azure-rulesets/data-plane"
