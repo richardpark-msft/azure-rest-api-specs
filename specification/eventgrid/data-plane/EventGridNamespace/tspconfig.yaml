@@ -59,3 +59,5 @@ options:
     emitter-output-dir: "{output-dir}/{service-dir}/aznamespaces"
     slice-elements-byval: true
     flavor: "azure"
+    # executes any go:generate commands in build.go, which generates the system events enumeration.
+    go-generate: build.go
